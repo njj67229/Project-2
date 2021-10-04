@@ -21,7 +21,7 @@ void makeList(SortedLinkedList s, string file) {
 	// While loop to put items into list
 	while(libFile.get(n)) {
 		ItemType i;
-		if (n != ' ' && n != '\n' && n != '\0') {
+		if (n != ' ' && n != '\n' && n != '\0' && libFile.peek() != '\0') {
 			number.push_back(n);
 		} else {
 			stringstream st;
@@ -30,6 +30,7 @@ void makeList(SortedLinkedList s, string file) {
 			st >> nu;
 			i.initialize(nu);
 			s.insertItem(i);
+			number = "";
 		} // if
 	} // while
 	libFile.close();

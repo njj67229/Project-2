@@ -7,6 +7,7 @@ using namespace std;
 
 SortedLinkedList::SortedLinkedList() {
     SortedLinkedList::ResetList();
+    head = NULL;
 }
 
 SortedLinkedList::~SortedLinkedList() {
