@@ -17,11 +17,18 @@ void makeList(SortedLinkedList s, string file) {
 	ifstream libFile;
 	libFile.open(file, ios::in);
 	char n;
+	string number;
 	// While loop to put items into list
 	while(libFile.get(n)) {
 		ItemType i;
 		if (n != ' ' && n != '\n' && n != '\0') {
-			i.initialize(n-48);
+			number.push_back(n);
+		} else {
+			stringstream st;
+			int nu;
+			st << number;
+			st >> nu;
+			i.initialize(nu);
 			s.insertItem(i);
 		} // if
 	} // while
@@ -80,6 +87,8 @@ int main(int argc, char **argv) {
 			cout << endl << "List after alternate delete: ";
 			s.printList();
 			cout << endl;
+		} else if (command == 108) { // l
+			cout << "List length is " << s.length() << endl;
 		} else if (command == 109) { // m
 			string numsToMerge;
 			stringstream ss;
