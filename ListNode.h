@@ -6,5 +6,5 @@
 struct ListNode {
     ItemType item;
     ListNode *next;
-}
+};
 #endif

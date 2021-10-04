@@ -2,12 +2,14 @@
 #define SORTEDLINKEDLIST_H
 
 #include "ListNode.h"
+#include "ItemType.h"
 
 class SortedLinkedList {
 private:
     ListNode *head;
     ListNode *currentPos;
-    int length;
+    int len;
+    int iterPos;
 public:
     SortedLinkedList();
     ~SortedLinkedList();
@@ -19,6 +21,7 @@ public:
     void ResetList();
     void merge(SortedLinkedList list);
     void deleteAlt();
-    void intersection(SortedLinkedList list);
-}
+    SortedLinkedList intersection(SortedLinkedList list);
+    void printList();
+};
 #endif

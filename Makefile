@@ -1,13 +1,22 @@
-CFLAGS = -Wall -g
+CFLAGS = -g -Wall
 CC = g++
 
-all: clean main clean
+all: main
+
+main: main.o ItemType.o SortedLinkedList.o
+	$(CC) $(CFLAGS) main.o ItemType.o SortedLinkedList.o -o main
+
+main.o : main.cpp
+	$(CC) -c main.cpp
+
+SortedLinkedList.o : SortedLinkedList.cpp SortedLinkedList.h
+	$(CC) -c SortedLinkedList.cpp
+
+ItemType.o : ItemType.h ItemType.cpp
+	$(CC) -c ItemType.cpp
+
 
 clean:
-	rm -f core *.o main.o Student.o Instructor.o main
-
-main: main.o Student.o Instructor.o
-	$(CC) $(CFLAGS) -o main main.o Student.o Instructor.o
-
-%.o : %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	-rm -f core *.o
+	-rm -f *.class
+	-rm -f main

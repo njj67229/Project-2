@@ -1,8 +1,13 @@
 #include "ItemType.h"
+#include <iostream>
 
 using namespace std;
 
-Comparison ItemType::compareTo(ItemType item) {
+ItemType::ItemType() {
+
+}
+
+ItemType::Comparison ItemType::compareTo(ItemType item) {
     if (item.getValue() == value) {
         return EQUAL;
     } else if (item.getValue() > value) {
